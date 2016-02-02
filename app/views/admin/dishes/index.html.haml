@@ -1,0 +1,20 @@
+%h1 Dishes
+= link_to 'New dish', new_admin_dish_path, class: 'btn btn-success'
+
+%table.table.table-striped
+  %tr
+    %th Name
+    %th Category
+    %th Recipe
+    %th Actions
+  - @dishes.each do |dish|
+    %tr
+      %td= dish.name
+      %td= link_to dish.category, admin_category_path(dish.category.id)
+      %td= dish.recipe.truncate(100)
+      %td
+        = link_to 'Show', admin_dish_path(dish.id)
+        = link_to 'Edit', edit_admin_dish_path(dish.id)
+        = link_to 'Delete', admin_dish_path(dish.id), method: :delete, data: {confirm: 'Are you sure?'}
+
+= link_to 'Back', admin_root_path

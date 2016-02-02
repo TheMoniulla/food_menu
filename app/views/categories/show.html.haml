@@ -1,0 +1,10 @@
+%h1
+  = @category.name
+
+%ul
+  - @category.dishes.each do |dish|
+    %li
+      = link_to dish.name, dish_path(dish.id)
+
+%br
+= link_to 'Back to Food Menu', root_path, class: 'btn btn-success'

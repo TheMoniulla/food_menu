@@ -1,0 +1,19 @@
+%h1 Food Menu
+
+%p
+  = link_to 'Breakfast', category_path(Category.find_by(name: 'Breakfast').id)
+
+%p
+  = link_to 'Lunch', category_path(Category.find_by(name: 'Lunch').id)
+
+%p
+  = link_to 'Diner', category_path(Category.find_by(name: 'Diner').id)
+
+%p
+  = link_to 'Supper', category_path(Category.find_by(name: 'Supper').id)
+
+%p
+  = link_to 'Snack', category_path(Category.find_by(name: 'Snack').id)
+
+%p
+  = link_to 'Dessert', category_path(Category.find_by(name: 'Dessert').id)

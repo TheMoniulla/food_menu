@@ -1,0 +1,14 @@
+%h1
+  Dishes for
+  = @category.name.downcase
+
+%table.table
+  %tr
+    %th Index
+    %th Name
+  - @category.dishes.each_with_index do |dish, index|
+    %tr
+      %td
+        = index + 1
+      %td
+        = link_to dish.name, admin_dish_path(dish.id)

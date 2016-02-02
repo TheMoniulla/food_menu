@@ -1,0 +1,27 @@
+%h1
+  = @dish.name
+
+%p
+  %b Meal:
+  = @dish.category
+
+%p
+  %b Recipe:
+  = @dish.recipe.gsub("\r\n", "<br />").html_safe
+
+%p
+  %b Comments:
+  - @comments.each do |comment|
+    %div
+      %div
+        %b= comment.user
+        at
+        %b= comment.created_at_for_display
+        wrote:
+      %div= comment.text
+
+%p
+  = link_to 'All dishes', admin_dishes_path, class: 'btn btn-info'
+
+%p
+  = link_to "All dishes for #{@dish.category.name}", admin_category_path(@dish.category.id), class: 'btn btn-success'

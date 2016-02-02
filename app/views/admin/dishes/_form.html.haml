@@ -1,0 +1,5 @@
+= simple_form_for [:admin, @dish] do |f|
+  = f.input :name
+  = f.input :category_id, collection: Category.all, include_blank: false
+  = f.input :recipe, input_html: {style: "height: 200px"}
+  = f.submit
